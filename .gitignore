@@ -1,0 +1,4 @@
+venv
+*.pyc
+.idea
+g_player_manager/settings.py

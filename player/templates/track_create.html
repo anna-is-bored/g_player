@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2 class="sub-header">Add a track</h2>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <form action="{% url 'track_create' %}" method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                  <button type="submit" class="btn btn-default">Add</button>
+                </form>
+            </div>
+       </div>
+{% endblock %}

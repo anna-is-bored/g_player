@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row mx-md-n5">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
+
+          <h2 class="sub-header">Tracks</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                <th>Name</th>
+                <th>Artist</th>
+                <th>Duration</th>
+                <th>Last played</th>
+              </tr>
+              <thead>
+              <tbody>
+              {% for track in object_list %}
+              <tr>
+                <td>{{ track.name }}</td>
+                <td>{{ track.artist.name }}</td>
+                <td>{{ track.duration }}</td>
+                <td>{{ track.last_play|date:"d M Y" }}</td>
+              </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+
+            <div class="pagination">
+                  <span class="step-links">
+                      {% if page_obj.has_previous %}
+                          <a href="?page=1">&laquo; first</a>
+                          <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                      {% endif %}
+
+                      <span class="current">
+                          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                      </span>
+
+                      {% if page_obj.has_next %}
+                          <a href="?page={{ page_obj.next_page_number }}">next</a>
+                          <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                      {% endif %}
+                  </span>
+              </div>
+          </div>
+        </div>
+</div>
+{% endblock %}

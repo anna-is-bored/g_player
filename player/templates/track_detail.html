@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row mx-md-n5">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
+
+          <h2 class="sub-header">{{ track.name }}</h2>
+          Artist: {{ track.artist.name }} <br >
+          Last played: {{ track.last_play|date:"d M Y" }}
+
+        </div>
+</div>
+{% endblock %}
